@@ -1,0 +1,6 @@
+= Amazon Simple Pay
+
+This library/gem provides a means to interface with the Amazon Simple Pay 
+service.
+
+More information will be added as the project develops.
