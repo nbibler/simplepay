@@ -20,7 +20,27 @@ The following services are coming someday (hopefully soon):
 
 == SYNOPSIS:
 
-A sample usage to come.
+Configure the gem with your Amazon credentials:
+
+  (in config/initializers/simplepay.rb)
+  
+  Simplepay.aws_access_key_id     = 'MYAMAZONACCESSKEYID'
+  Simplepay.aws_secret_access_key = 'MYAMAZONSECRETACCESSKEY'
+  Simplepay.account_id            = 'ACCOUNTIDFORAMAZONPAYMENTS'
+
+Generally, this library will then be used directly from one (or more) of your 
+views, like so:
+
+  <%= simplepay_form_for(:standard, {
+    :amount       => 10.95,
+    :description  => "Profit!"
+  }) %>
+  
+  <%= simplepay_form_for(:subscription, {
+    :amount                 => 10.95,
+    :description            => "MORE Profit!",
+    :recurring_frequency    => "1 month"
+  }) %>
 
 == REQUIREMENTS:
 
