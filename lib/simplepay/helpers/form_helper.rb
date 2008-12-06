@@ -1,7 +1,3 @@
-# require 'action_view/helpers/form_tag_helper'
-# require 'action_view/helpers/capture_helper'
-require 'erb'
-
 module Simplepay
   module Helpers
     
@@ -27,9 +23,6 @@ module Simplepay
         end
       end
       
-      # extend ActionView::Helpers::TagHelper
-      # extend ActionView::Helpers::FormTagHelper
-      # extend ActionView::Helpers::CaptureHelper
     end
     
   end
