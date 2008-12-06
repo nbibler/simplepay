@@ -76,9 +76,11 @@ module Simplepay
     end
     
     def form(attributes = {}, submit = nil)
+      set_accessor_fields
       set_fields(attributes)
+      set_signature
       content = generate_input_fields + generate_submit_field(submit)
-      Simplepay::Helpers::FormHelper.content_tag(:form, content)
+      Simplepay::Helpers::FormHelper.content_tag(:form, content, {:method => 'post', :action => url})
     end
     
     
@@ -95,12 +97,26 @@ module Simplepay
       submit ? submit.to_s : Simplepay::Helpers::FormHelper.tag(:input, options)
     end
     
+    def set_accessor_fields
+      self.access_key = Simplepay.aws_access_key_id if self.respond_to?(:access_key=)
+      self.account_id = Simplepay.account_id if self.respond_to?(:account_id=)
+    end
+    
     def set_fields(hash)
       hash.each_pair do |key, value|
         self.send("#{key}=", value) if self.respond_to?("#{key}=")
       end
     end
     
+    def set_signature
+      fields = {}
+      self.fields.each { |f| fields[f.service_name] = f.value unless f.service_name == 'signature' }
+      self.signature = Authentication.generate(fields) if self.respond_to?(:signature=)
+    end
+    
   end
   
 end
+
+require 'simplepay/services/subscription'
+require 'simplepay/services/standard'

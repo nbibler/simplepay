@@ -6,18 +6,15 @@ http://simplepay.rubyforge.org
 
 This gem provides a Rails interface to the Amazon Simple Pay payment service.
 
-At the moment, this library only provides a definition for the subscription 
-service, but additional services will be added, shortly.
-
 == FEATURES/PROBLEMS:
 
 Supports the following Amazon Simple Pay services:
 
+* Standard
 * Subscription
 
 The following services are coming someday (hopefully soon):
 
-* Standard
 * Donation
 * Marketplace
 

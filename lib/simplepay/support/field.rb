@@ -71,7 +71,7 @@ module Simplepay
       # 
       def to_input
         raise(RequiredFieldMissing, "Missing Required Field value for #{name}") if required? && value.blank?
-        value ? html_input_tag : ''
+        value.blank? ? '' : html_input_tag
       end
       
       def delegated? #:nodoc:

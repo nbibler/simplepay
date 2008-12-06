@@ -64,8 +64,7 @@ class Simplepay::Services::TestSubscription < Test::Unit::TestCase
 
     should_have_service_field :donation_widget,
                               :as       => 'isDonationWidget', 
-                              :required => false,
-                              :class    => Simplepay::Support::Boolean
+                              :required => false
 
     should_have_service_field :fixed_marketplace_fee,
                               :as       => 'fixedMarketplaceFee', 

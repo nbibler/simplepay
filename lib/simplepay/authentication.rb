@@ -18,11 +18,11 @@ module Simplepay
     
     class << self
       
-      def generate(hash_data, secret_access_key = Simplepay.secret_access_key)
+      def generate(hash_data, secret_access_key = Simplepay.aws_secret_access_key)
         encode(digest(convert_to_string(hash_data), secret_access_key))
       end
       
-      def authentic?(hash_data, signature, secret_access_key = Simplepay.secret_access_key)
+      def authentic?(hash_data, signature, secret_access_key = Simplepay.aws_secret_access_key)
         signature == generate(hash_data, secret_access_key)
       end
       
@@ -46,7 +46,7 @@ module Simplepay
         raise(ArgumentError, "Expected a Hash of data") unless hash.kind_of?(Hash)
         data    = hash.stringify_keys
         string  = ''
-        data.keys.sort.each { |k| string += "#{k}#{data[k]}" }
+        data.keys.sort.each { |k| string += "#{k}#{data[k]}" unless data[k].blank? }
         string
       end
       

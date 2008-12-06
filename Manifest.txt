@@ -7,7 +7,9 @@ lib/simplepay/authentication.rb
 lib/simplepay/constants.rb
 lib/simplepay/errors.rb
 lib/simplepay/helpers/form_helper.rb
+lib/simplepay/helpers/rails_helper.rb
 lib/simplepay/service.rb
+lib/simplepay/services/standard.rb
 lib/simplepay/services/subscription.rb
 lib/simplepay/support.rb
 lib/simplepay/support/amount.rb

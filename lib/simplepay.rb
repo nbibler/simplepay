@@ -3,29 +3,24 @@ $:.unshift(File.dirname(__FILE__)) unless
 
 require 'active_support'
 
-require 'simplepay/constants'
-require 'simplepay/support'
-require 'simplepay/service'
-require 'simplepay/services/subscription'
-
-require 'simplepay/helpers/form_helper'
-
 module Simplepay
   
-  VERSION = '0.0.1'
+  VERSION = '0.0.1' unless const_defined?(:VERSION)
 
-  mattr_accessor :html_tag_terminator
-  @@html_tag_terminator = '/'
-
-  mattr_accessor :access_key_id
-  mattr_accessor :secret_access_key
+  mattr_accessor :aws_access_key_id
+  mattr_accessor :aws_secret_access_key
+  mattr_accessor :account_id
 
   mattr_accessor :use_sandbox
   @@use_sandbox = true
-
 
   def self.use_sandbox?
     @@use_sandbox
   end
 
 end
+
+require 'simplepay/constants'
+require 'simplepay/support'
+require 'simplepay/service'
+require 'simplepay/helpers/form_helper'
