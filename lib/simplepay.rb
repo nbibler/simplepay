@@ -5,7 +5,7 @@ require 'active_support'
 
 module Simplepay
   
-  VERSION = '0.0.1' unless const_defined?(:VERSION)
+  VERSION = '0.1.0' unless const_defined?(:VERSION)
 
   mattr_accessor :aws_access_key_id
   mattr_accessor :aws_secret_access_key
