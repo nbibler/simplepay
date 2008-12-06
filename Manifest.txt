@@ -23,6 +23,7 @@ lib/simplepay/support/subscription_period.rb
 script/console
 script/destroy
 script/generate
+simplepay.gemspec
 test/simplepay/services/test_subscription.rb
 test/simplepay/support/test_amount.rb
 test/simplepay/support/test_billing_frequency.rb
