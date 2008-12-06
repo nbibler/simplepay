@@ -6,9 +6,6 @@ module Simplepay
     # 
     class Standard < Service
       
-      ENDPOINT_URL  = 'https://authorize.payments-sandbox.amazon.com/pba/paypipeline'
-      SANDBOX_URL   = 'https://authorize.payments-sandbox.amazon.com/pba/paypipeline'
-      
       required_field :access_key
       required_field :signature
       required_field :account_id,           :as     => :amazon_payments_account_id

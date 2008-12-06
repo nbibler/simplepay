@@ -7,10 +7,10 @@ module Simplepay
   class Service
     
     # Fully-qualified URL for the production endpoint for the service.
-    ENDPOINT_URL  = nil
+    ENDPOINT_URL  = 'https://authorize.payments.amazon.com/pba/paypipeline'
     
     # Fully-qualified URL for the sandbox (test) endpoint for the service.
-    SANDBOX_URL   = nil
+    SANDBOX_URL   = 'https://authorize.payments-sandbox.amazon.com/pba/paypipeline'
     
     class << self
       
