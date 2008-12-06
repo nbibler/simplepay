@@ -1,3 +1,5 @@
 == 0.0.1 2008-12-05
 
 * Initial release
+* Supports Amazon Simple Pay Standard and the-soon-to-be-released Subscriptions
+* Generates your dynamic service HTML forms automatically.
