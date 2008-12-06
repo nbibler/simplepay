@@ -1,4 +1,4 @@
-== 0.0.1 2008-12-05
+== 0.1.0 2008-12-05
 
 * Initial release
 * Supports Amazon Simple Pay Standard and the-soon-to-be-released Subscriptions
