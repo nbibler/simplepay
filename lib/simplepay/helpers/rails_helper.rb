@@ -23,6 +23,3 @@ module Simplepay
     
   end
 end
-
-# Inject helper into Rails ActionView.
-ActionView::Base.__send__(:include, Simplepay::Helpers::RailsHelper)
