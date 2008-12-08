@@ -2,6 +2,7 @@ History.txt
 Manifest.txt
 README.rdoc
 Rakefile
+config/website.yml
 lib/simplepay.rb
 lib/simplepay/authentication.rb
 lib/simplepay/constants.rb
@@ -24,6 +25,7 @@ script/console
 script/destroy
 script/generate
 simplepay.gemspec
+test/simplepay/services/test_standard.rb
 test/simplepay/services/test_subscription.rb
 test/simplepay/support/test_amount.rb
 test/simplepay/support/test_billing_frequency.rb
@@ -36,3 +38,10 @@ test/simplepay/test_authentication.rb
 test/simplepay/test_service.rb
 test/test_helper.rb
 test/test_simplepay.rb
+website/default.css
+website/images/img01.gif
+website/images/img02.gif
+website/images/img03.gif
+website/images/img04.gif
+website/images/spacer.gif
+website/index.html
