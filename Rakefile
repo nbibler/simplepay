@@ -22,3 +22,4 @@ require 'newgem/tasks' # load /tasks/*.rake
 Dir['tasks/**/*.rake'].each { |t| load t }
 
 task :default => [:test]
+task :release_and_update => [:gemspec, :release, :website, :post_news]
