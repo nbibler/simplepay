@@ -17,6 +17,22 @@ module Simplepay
   
   Intervals = [Interval::Day, Interval::Week, Interval::Month, Interval::Year]
   
+  module ResponseStatusCode
+    Abandoned                 = 'A'
+    HtmlError                 = 'ME'
+    PaymentFailed             = 'PF'
+    PaymentInitiated          = 'PI'
+    PaymentReserved           = 'PR'
+    PaymentSuccessful         = 'PS'
+    SystemError               = 'SE'
+    SubscriptionFailed        = 'SF'
+    SubscriptionSuccessful    = 'SS'
+    
+    Successful  = [PaymentSuccessful, SubscriptionSuccessful]
+    Failure     = [Abandoned, HtmlError, PaymentFailed, SystemError, SubscriptionFailed]
+    Pending     = [PaymentInitiated, PaymentReserved]
+  end
+  
   module Currency
     USD   = Support::Currency.new('United States Dollar', 'USD', "%0.2f")
   end
