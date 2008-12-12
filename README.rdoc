@@ -20,27 +20,44 @@ The following services are coming someday (hopefully soon):
 
 == SYNOPSIS:
 
+Set up the gem requirement in your environment:
+
+    (in config/environment.rb)
+    
+    config.gem "simplepay"
+
 Configure the gem with your Amazon credentials:
 
-  (in config/initializers/simplepay.rb)
-  
-  Simplepay.aws_access_key_id     = 'MYAMAZONACCESSKEYID'
-  Simplepay.aws_secret_access_key = 'MYAMAZONSECRETACCESSKEY'
-  Simplepay.account_id            = 'ACCOUNTIDFORAMAZONPAYMENTS'
+    (in config/initializers/simplepay.rb)
+    
+    Simplepay.aws_access_key_id     = 'MYAMAZONACCESSKEYID'
+    Simplepay.aws_secret_access_key = 'MYAMAZONSECRETACCESSKEY'
+    Simplepay.account_id            = 'ACCOUNTIDFORAMAZONPAYMENTS'
+
+Then, let Rails know about the Simplepay::Helpers:
+
+    (potentially in app/controllers/application[_controller].rb or really anywhere else)
+    
+    require 'simplepay/rails'
+
+
+=== Generating your Simple Pay forms
 
 Generally, this library will then be used directly from one (or more) of your 
-views, like so:
+views.  Depending on the type of Simple Pay service you're using (see 
+Simplepay::Services), some form values will be required, while others may be 
+optional.  This is done like so:
 
-  <%= simplepay_form_for(:standard, {
-    :amount       => 10.95,
-    :description  => "Profit!"
-  }) %>
-  
-  <%= simplepay_form_for(:subscription, {
-    :amount                 => 10.95,
-    :description            => "MORE Profit!",
-    :recurring_frequency    => "1 month"
-  }) %>
+    <%= simplepay_form_for(:standard, {
+      :amount       => 10.95,
+      :description  => "Profit!"
+    }) %>
+    
+    <%= simplepay_form_for(:subscription, {
+      :amount                 => 10.95,
+      :description            => "MORE Profit!",
+      :recurring_frequency    => "1 month"
+    }) %>
 
 == REQUIREMENTS:
 
