@@ -3,8 +3,23 @@ require 'action_view/base'
 module Simplepay
   module Helpers
     
+    ##
+    # Adds helpers to your views for generating the correct HTML FORMs and 
+    # valid signatures.
+    # 
     module RailsHelper
       
+      ##
+      # This is the general interface for generating your Simple Pay service
+      # forms.  See Simplepay::Services for available services and information
+      # specific to each.
+      # 
+      # === Example
+      # 
+      #     (in your view)
+      # 
+      #     <%= simplepay_form_for(:service_name, {:attr => 'foo'}) %>
+      # 
       def simplepay_form_for(service_name, attributes = {})
         service = get_simplepay_service(service_name)
         service.form(attributes)
@@ -14,7 +29,7 @@ module Simplepay
       private
       
       
-      def get_simplepay_service(name)
+      def get_simplepay_service(name) #:nodoc:
         service = "Simplepay::Services::#{name.to_s.camelize}".constantize
         service.new
       end
