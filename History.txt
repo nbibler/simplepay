@@ -1,3 +1,9 @@
+== 0.1.2 UNRELEASED
+
+* Added Standard and Subscription documentation.
+* Added a submit tag override to simplepay_form_for helper.
+* Added a Simplepay::ResponseStatusCode::All shortcut.
+
 == 0.1.1 2008-12-11
 
 * Added a NotificationHelper to aid with Amazon IPN validation.

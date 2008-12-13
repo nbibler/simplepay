@@ -31,6 +31,7 @@ module Simplepay
     Successful  = [PaymentSuccessful, SubscriptionSuccessful]
     Failure     = [Abandoned, HtmlError, PaymentFailed, SystemError, SubscriptionFailed]
     Pending     = [PaymentInitiated, PaymentReserved]
+    All         = [Successful, Failure, Pending].flatten
   end
   
   module Currency
