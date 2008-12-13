@@ -36,6 +36,16 @@ module Simplepay
     # start_date:: Instructs Amazon with the timestamp to start the recurring subscription charges.
     # subscription_period:: Defines the expiration window of the subscription (i.e. charge +amount+ every +recurring_frequency+ for "36 months")
     # 
+    # === Example
+    # 
+    #     (in your view, using the form helper)
+    #     
+    #     <%= simplepay_form_for(:subscription, {
+    #           :amount               => 12.95,
+    #           :recurring_frequency  => "1 year",
+    #           :description          => "My.Url Yearly Dues"
+    #     }) %>
+    # 
     class Subscription < Service
       
       required_field :access_key
