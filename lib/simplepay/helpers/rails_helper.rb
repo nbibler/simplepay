@@ -4,7 +4,7 @@ module Simplepay
   module Helpers
     
     ##
-    # Adds helpers to your views for generating the correct HTML FORMs and 
+    # Adds helpers to your views for generating the correct HTML forms and 
     # valid signatures.
     # 
     module RailsHelper
