@@ -13,7 +13,7 @@ module Simplepay
     # (in addition to those listed in +Simplepay::Service+):
     # 
     # max_fixed_fee:: The maximum fixed fee that will be appended to transactions.
-    # max_variable_fee:: The maximum variable fee that will be calculated and added to transactions.
+    # max_variable_fee:: The maximum variable fee (%) that will be calculated and added to transactions.
     # return_url:: Fully-qualified URL for where to send they buyer following payment.
     # reference_id:: A custom string used to identify this transaction, it will be returned with return data.
     #

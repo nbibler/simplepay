@@ -12,11 +12,11 @@ Supports the following Amazon Simple Pay services:
 
 * Standard
 * Subscription
+* Marketplace
 
 The following services are coming someday (hopefully soon):
 
 * Donation
-* Marketplace
 
 == SYNOPSIS:
 
@@ -58,6 +58,41 @@ optional.  This is done like so:
       :description            => "MORE Profit!",
       :recurring_frequency    => "1 month"
     }) %>
+
+
+=== Marketplace forms
+
+Amazon Simple Pay Marketplace makes it easy to facilitate payments between
+buyers and sellers, and to charge a fee for the transaction. If you're building
+a marketplace application, your sellers must first agree to the policy that you
+set. You can do this by specifying the Simplepay::Services::MarketplacePolicy
+service:
+
+    <%= simplepay_form_for(:marketplace_policy, {
+      :max_fixed_fee => 5.00,
+      :max_variable_fee => 5,
+      :return_url => 'http://yourservice.com',
+      :reference_id => '1234567890'
+    }) %>
+
+The user will be prompted to login to their Amazon account and accept the policy
+you propose. After they complete the process, they'll be returned to the return_url
+specified. Amazon will also provide a recipientEmail parameter that will contain
+the seller email here (you may want to craft your return url so that it contains the
+reference_id value and use this to 'acknowledge' a sellers consent and record their
+Amazon recipient email address).
+
+Only once this is done will you be able to offer marketplace checkout options for
+that sellers items:
+
+    <%= simplepay_form_for(:marketplace, {
+      :amount                   => 34.95,
+      :description              => "Mutual profit!",
+      :recipient_email          => 'seller@gmail.com',
+      :fixed_marketplace_fee    => 10.00,
+      :variable_marketplace_fee => 5
+    }) %>
+
 
 == REQUIREMENTS:
 
