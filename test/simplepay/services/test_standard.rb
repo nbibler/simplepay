@@ -1,11 +1,11 @@
 require File.dirname(__FILE__) + '/../../test_helper'
 require 'simplepay/services/subscription'
 
-class Simplepay::Services::TestSubscription < Test::Unit::TestCase
+class Simplepay::Services::TestStandard < Test::Unit::TestCase
   
   def self.model_class; Simplepay::Services::Standard; end
   
-  context 'Simplepay::Services::Subscription' do
+  context 'Simplepay::Services::Standard' do
     
     should_have_service_field :access_key,
                               :as       => 'accessKey', 
