@@ -128,3 +128,5 @@ end
 
 require 'simplepay/services/subscription'
 require 'simplepay/services/standard'
+require 'simplepay/services/marketplace'
+require 'simplepay/services/marketplace_policy'
