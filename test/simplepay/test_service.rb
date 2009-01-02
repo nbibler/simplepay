@@ -64,12 +64,12 @@ class Simplepay::TestService < Test::Unit::TestCase
     
     should 'generate an HTML FORM' do
       @service.required = 'set'
-      assert_match /\A<form/i, @service.form
-      assert_match /<\/form>\Z/i, @service.form
+      assert_match(/\A<form/i, @service.form)
+      assert_match(/<\/form>\Z/i, @service.form)
     end
     
     should 'post the form to the endpoint' do
-      assert_match /<form action="#{Regexp.escape('http://test.host.url/sandbox')}" method="post"/, @service.form({:required => 'set'})
+      assert_match(/<form action="#{Regexp.escape('http://test.host.url/sandbox')}" method="post"/, @service.form({:required => 'set'}))
     end
     
     should 'generate HIDDEN HTML INPUTs for each non-empty field' do
