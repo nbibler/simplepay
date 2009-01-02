@@ -17,10 +17,6 @@ module Simplepay
     # return_url:: Fully-qualified URL for where to send they buyer following payment.
     # reference_id:: A custom string used to identify this transaction, it will be returned with return data.
     #
-    # === Optional Fields
-    #
-    # recipient_pays_fee:: Set to True if Amazon fees should be deducted from recipient earnings (default behavior is marketplace owner pays)
-    # 
     # === Example
     # 
     #     (in your view, using the form helper)
@@ -49,9 +45,12 @@ module Simplepay
       required_field :return_url
 
       required_field :reference_id,          :as => :caller_reference
-      required_field :recipient_pays_fee,    :value => 'False'
       required_field :collect_email_address, :value => 'True'
       required_field :pipeline_name,         :value => 'Recipient'
+
+      # These fields are not currently utilized by the service
+      required_field :recipient_pays_fee,    :value => 'True'
+      
     end
     
   end
