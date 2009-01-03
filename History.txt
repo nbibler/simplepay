@@ -1,5 +1,6 @@
-== 0.1.2 UNRELEASED
+== 0.2.0 2009-01-03
 
+* Added Marketplace Service support [Nick Plante (zapnap)]
 * Added Standard and Subscription documentation.
 * Added a submit tag override to simplepay_form_for helper.
 * Added a Simplepay::ResponseStatusCode::All shortcut.
