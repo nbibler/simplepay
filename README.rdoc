@@ -13,9 +13,6 @@ Supports the following Amazon Simple Pay services:
 * Standard
 * Subscription
 * Marketplace
-
-The following services are coming someday (hopefully soon):
-
 * Donation
 
 == SYNOPSIS:
