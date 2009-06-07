@@ -11,6 +11,7 @@ lib/simplepay/helpers/notification_helper.rb
 lib/simplepay/helpers/rails_helper.rb
 lib/simplepay/rails.rb
 lib/simplepay/service.rb
+lib/simplepay/services/donation.rb
 lib/simplepay/services/marketplace.rb
 lib/simplepay/services/marketplace_policy.rb
 lib/simplepay/services/standard.rb
@@ -29,6 +30,7 @@ script/destroy
 script/generate
 simplepay.gemspec
 test/simplepay/helpers/test_notifier.rb
+test/simplepay/services/test_donation.rb
 test/simplepay/services/test_marketplace.rb
 test/simplepay/services/test_marketplace_policy.rb
 test/simplepay/services/test_standard.rb
