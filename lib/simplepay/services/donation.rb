@@ -57,32 +57,32 @@ module Simplepay
     # 
     class Donation < Service
 
-        required_field :access_key
-        required_field :signature
-        required_field :account_id,           :as     => :amazon_payments_account_id
+      required_field :access_key
+      required_field :signature
+      required_field :account_id,           :as     => :amazon_payments_account_id
 
-        required_field :description
-        required_field :amount,               :class  => Support::Amount
-        required_field :cobranding_style,     :value  => 'logo'
-        required_field :donation_widget,      :as     => :is_donation_widget,
-                                              :value  => '1'
-        
-        field :reference_id
-        field :immediate_return,              :class  => Support::Boolean
-        field :collect_shipping_address,      :class  => Support::Boolean
-        field :process_immediately,           :class  => Support::Boolean,
-                                              :as     => :process_immediate
+      required_field :description
+      required_field :amount,               :class  => Support::Amount
+      required_field :cobranding_style,     :value  => 'logo'
+      required_field :donation_widget,      :as     => :is_donation_widget,
+                                            :value  => '1'
+      
+      field :reference_id
+      field :immediate_return,              :class  => Support::Boolean
+      field :collect_shipping_address,      :class  => Support::Boolean
+      field :process_immediately,           :class  => Support::Boolean,
+                                            :as     => :process_immediate
 
-        field :return_url
-        field :ipn_url
-        field :abandon_url
-        
-        # Marketplace inputs (recipient email required when using)
-        field :fixed_marketplace_fee,         :class  => Support::Amount
-        field :variable_marketplace_fee
-        field :recipient_email
-        
-      end
+      field :return_url
+      field :ipn_url
+      field :abandon_url
+      
+      # Marketplace inputs (recipient email required when using)
+      field :fixed_marketplace_fee,         :class  => Support::Amount
+      field :variable_marketplace_fee
+      field :recipient_email
+      
+    end
     
   end
 end
