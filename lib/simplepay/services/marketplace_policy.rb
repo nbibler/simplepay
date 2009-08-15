@@ -30,12 +30,6 @@ module Simplepay
     #
     class MarketplacePolicy < Service
       
-      # Fully-qualified URL for the production endpoint for the service.
-      ENDPOINT_URL  = 'https://authorize.payments.amazon.com/cobranded-ui/actions/start'
-
-      # Fully-qualified URL for the sandbox (test) endpoint for the service.
-      SANDBOX_URL   = 'https://authorize.payments-sandbox.amazon.com/cobranded-ui/actions/start'
-
       required_field :access_key, :as => :caller_key
       required_field :signature,  :as => :aws_signature
       required_field :account_id, :as => :caller_account_id
