@@ -13,6 +13,16 @@ require File.dirname(__FILE__) + '/../lib/simplepay'
 module Simplepay #:nodoc:
   module Macros #:nodoc: all
     
+    def should_not_have_service_field(*names)
+      klass = model_class
+      
+      names.each do |name|
+        should "not have a field named #{name.inspect}" do
+          assert !klass.fields.any? { |f| f.name == name }
+        end
+      end
+    end
+    
     def should_have_service_field(*names)
       delegate_class, service_name, required = get_options!(names, :class, :as, :required)
       klass = model_class

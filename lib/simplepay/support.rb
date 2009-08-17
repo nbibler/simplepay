@@ -5,6 +5,7 @@ require 'simplepay/support/currency'
 require 'simplepay/support/epoch'
 require 'simplepay/support/field'
 require 'simplepay/support/interval'
+require 'simplepay/support/simple_amount'
 require 'simplepay/support/subscription_period'
 
 module Simplepay
