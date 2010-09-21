@@ -36,42 +36,23 @@ module Simplepay
     # 
     class Standard < Service
 
-      # common service fields
-      required_field :signature, :as => :aws_signature
-      required_field :access_key, :as => :caller_key
-      required_field :pipeline_name, :value => 'SingleUse' # Valid Values: SingleUse | MultiUse | Recurring | Recipient | SetupPrepaid | SetupPostpaid | EditToken
-      required_field :return_url
-      required_field :version, :value => '2009-01-09'
+      required_field :access_key
+      required_field :amount
+      required_field :description
+      required_field :signature
+      required_field :signature_method, :value => 'HmacSHA256'
+      required_field :signature_version, :value => '2'
 
+      field :abandon_url
       field :cobranding_style, :value => 'logo'
-      field :cobranding_url
-      field :website_description
-
-      # standard service fields
-      required_field :reference_id, :as => 'callerReference'
-      required_field :transaction_amount, :class => Support::SimpleAmount
-      
-      field :address_name
-      field :address_line1
-      field :address_line2
-      field :city
-      field :state
-      field :zip
-      field :phone_number
       field :collect_shipping_address, :class => Support::Boolean
-      field :currency_code, :value => "USD"
-      field :discount
-      field :gift_wrapping
-      field :handling, :class => Support::SimpleAmount
-      field :item_total, :class => Support::SimpleAmount
-      field :payment_method
-      field :payment_reason
-      field :reserve
-      field :shipping, :class => Support::SimpleAmount
-      field :tax, :class => Support::SimpleAmount
+      field :immediate_return, :class => Support::Boolean
       field :ipn_url
-      
+      field :process_immediate, :class => Support::Boolean
+      field :reference_id
+      field :return_url
+
     end
-    
+
   end
 end

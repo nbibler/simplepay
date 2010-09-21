@@ -15,10 +15,10 @@ module Simplepay
   class Service
 
     # Fully-qualified URL for the production endpoint for the service.
-    ENDPOINT_URL  = 'https://authorize.payments.amazon.com/cobranded-ui/actions/start'
+    ENDPOINT_URL  = 'https://authorize.payments.amazon.com/pba/pipeline'
 
     # Fully-qualified URL for the sandbox (test) endpoint for the service.
-    SANDBOX_URL   = 'https://authorize.payments-sandbox.amazon.com/cobranded-ui/actions/start'
+    SANDBOX_URL   = 'https://authorize.payments-sandbox.amazon.com/pba/pipeline'
     
     class << self
       
@@ -119,7 +119,7 @@ module Simplepay
     def set_signature
       fields = {}
       self.fields.each { |f| fields[f.service_name] = f.value unless f.service_name == 'signature' }
-      self.signature = Authentication.generate(fields) if self.respond_to?(:signature=)
+      self.signature = Signature.new(URI.parse(url), fields).sign if self.respond_to?(:signature=)
     end
     
   end

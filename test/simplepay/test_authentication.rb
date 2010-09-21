@@ -6,28 +6,20 @@ class Simplepay::TestAuthentication < Test::Unit::TestCase
   context 'Simplepay::Authentication' do
     
     setup do
+      @uri        = URI.parse('https://authorize.payments-sandbox.amazon.com/pba/pipeline')
       @secret_key = "TESTINGKEY"
-      @signature  = 'c7Nyzt61Bwe2pec9rO2nM5ZjmC0='
+      @signature  = 'Ni8YGsrFZmAJwQN8mCZvTqOlPuNiNCzoi4LqyQS4ums='
       @data = {
         :symbol   => 'string',
         'string'  => 1,
         2         => :symbol
       }
-      @auth = Simplepay::Authentication
     end
-    
+
     should 'compute an Amazon signature for hash data' do
-      assert_equal @signature, @auth.generate(@data, @secret_key)
+      assert_equal @signature, Simplepay::Signature.new(@uri, @data, @secret_key).sign
     end
-    
-    should 'authenticate correctly signed data' do
-      assert @auth.authentic?(@data, @signature, @secret_key)
-    end
-    
-    should 'not validate incorrectly signed data' do
-      assert !@auth.authentic?(@data, 'thisisnotavalidsignaturetoo=', @secret_key)
-    end
-    
+
   end
-  
+
 end
