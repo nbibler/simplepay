@@ -1,4 +1,5 @@
-require 'simplepay/authentication'
+require 'cgi'
+require 'open-uri'
 
 module Simplepay
   module Helpers
@@ -37,13 +38,15 @@ module Simplepay
       #       end
       #     end
       # 
-      def valid_simplepay_request?(request_hash)
-        hash      = request_hash.symbolize_keys
-        signature = hash.delete(:signature) || ''
-        Simplepay::Authentication.authentic?(hash, signature)
+      def valid_simplepay_request?(endpoint, params)
+        url = sandbox ? 'https://fps.sandbox.amazonaws.com' : 'https://fps.amazonaws.com'
+        endpoint = CGI.escape(endpoint)
+        params = CGI.escape(params.inject([]) { |a,(k,v)| a << k.to_s + '=' + v.to_s }.join('&'))
+        result = open(url + "/?Action=VerifySignature&UrlEndpoint=#{endpoint}&HttpParameters=#{params}")
+        result =~ /Success/ ? true : false
       end
-      
+
     end
-    
+
   end
 end
