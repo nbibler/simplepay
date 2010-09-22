@@ -22,5 +22,6 @@ end
 
 require 'simplepay/constants'
 require 'simplepay/support'
+require 'simplepay/authentication'
 require 'simplepay/service'
 require 'simplepay/helpers/form_helper'
