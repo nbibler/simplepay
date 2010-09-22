@@ -38,11 +38,11 @@ module Simplepay
       #       end
       #     end
       # 
-      def valid_simplepay_request?(endpoint, params)
-        url = sandbox ? 'https://fps.sandbox.amazonaws.com' : 'https://fps.amazonaws.com'
+      def valid_simplepay_request?(endpoint, query)
+        url = Simplepay.use_sandbox ? 'https://fps.sandbox.amazonaws.com' : 'https://fps.amazonaws.com'
         endpoint = CGI.escape(endpoint)
-        params = CGI.escape(params.inject([]) { |a,(k,v)| a << k.to_s + '=' + v.to_s }.join('&'))
-        result = open(url + "/?Action=VerifySignature&UrlEndpoint=#{endpoint}&HttpParameters=#{params}")
+        query = CGI.escape(query)
+        result = open(url + "/?Action=VerifySignature&UrlEndpoint=#{endpoint}&HttpParameters=#{query}")
         result =~ /Success/ ? true : false
       end
 
