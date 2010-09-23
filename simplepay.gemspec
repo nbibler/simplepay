@@ -6,7 +6,6 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Nathaniel E. Bibler"]
-  s.cert_chain = ["/Users/nathan/.gem/gem-public_cert.pem"]
   s.date = %q{2009-06-07}
   s.description = %q{This gem provides a Rails interface to the Amazon Simple Pay payment service.}
   s.email = ["gem@nathanielbibler.com"]
@@ -18,7 +17,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{simplepay}
   s.rubygems_version = %q{1.3.2}
-  s.signing_key = %q{/Users/nathan/.gem/gem-private_key.pem}
   s.summary = %q{This gem provides a Rails interface to the Amazon Simple Pay payment service.}
   s.test_files = ["test/simplepay/helpers/test_notifier.rb", "test/simplepay/services/test_donation.rb", "test/simplepay/services/test_marketplace.rb", "test/simplepay/services/test_marketplace_policy.rb", "test/simplepay/services/test_standard.rb", "test/simplepay/services/test_subscription.rb", "test/simplepay/support/test_amount.rb", "test/simplepay/support/test_billing_frequency.rb", "test/simplepay/support/test_boolean.rb", "test/simplepay/support/test_epoch.rb", "test/simplepay/support/test_field.rb", "test/simplepay/support/test_interval.rb", "test/simplepay/support/test_subscription_period.rb", "test/simplepay/test_authentication.rb", "test/simplepay/test_service.rb", "test/test_helper.rb", "test/test_simplepay.rb"]
 

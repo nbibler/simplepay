@@ -8,7 +8,7 @@ module Simplepay
       end
       
       def self.content_tag(name, content, options = nil)
-        "<#{name}#{tag_options(options)}>#{content}</#{name}>"
+        "<#{name}#{tag_options(options)}>#{content}</#{name}>".html_safe
       end
       
       
