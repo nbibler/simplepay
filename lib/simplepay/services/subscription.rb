@@ -51,8 +51,8 @@ module Simplepay
       required_field :access_key
       required_field :signature
       required_field :account_id,           :as     => :amazon_payments_account_id
-      required_field :signature_method, :value => 'HmacSHA256'
-      required_field :signature_version, :value => '2'
+      required_field :signature_method,     :value => 'HmacSHA256'
+      required_field :signature_version,    :value => '2'
       
       
       
@@ -64,14 +64,18 @@ module Simplepay
       field :subscription_period,           :class  => Support::SubscriptionPeriod
       field :reference_id
       field :immediate_return,              :class  => Support::Boolean
+
       field :start_date,                    :class  => Support::Epoch,
                                             :as     => :recurring_start_date
-      field :collect_shipping_address,      :class  => Support::Boolean
+      
+      field :collect_shipping_address,      :class  => Support::Boolean      
+      
       field :process_immediately,           :class  => Support::Boolean,
                                             :as     => :process_immediate
+
       field :auto_renew,                    :class  => Support::Boolean,
                                             :as     => :is_auto_renewal
-
+      
       field :return_url
       field :ipn_url
       field :abandon_url

@@ -27,7 +27,7 @@ module Simplepay
 
     def make_canonical_string
       @canonical = "POST\n#{@uri.host}\n#{@uri.path}\n"
-      params = @params.inject({}) { |a, (k,v)| a[k.to_s] = v; a }
+      params = @params.reject{|k,v| v.blank? }.inject({}) { |a, (k,v)| a[k.to_s] = v; a }
       params = params.sort.inject([]) { |a, v| a << urlencode(v[0]) + '=' + urlencode(v[1]) }.join('&')
       @canonical += params
     end

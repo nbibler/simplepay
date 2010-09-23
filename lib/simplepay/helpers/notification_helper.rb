@@ -42,8 +42,10 @@ module Simplepay
         url = Simplepay.use_sandbox ? 'https://fps.sandbox.amazonaws.com' : 'https://fps.amazonaws.com'
         endpoint = CGI.escape(endpoint)
         query = CGI.escape(query)
-        result = open(url + "/?Action=VerifySignature&Version=2008-09-17&UrlEndPoint=#{endpoint}&HttpParameters=#{query}")
-        result =~ /Success/ ? true : false
+
+        url_and_query = url + "/?Action=VerifySignature&Version=2008-09-17&UrlEndPoint=#{endpoint}&HttpParameters=#{query}"
+        result = open(url_and_query)
+        result.read =~ /Success/ ? true : false
       end
 
     end
