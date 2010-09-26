@@ -44,7 +44,7 @@ module Simplepay
         query = CGI.escape(query)
 
         url_and_query = url + "/?Action=VerifySignature&Version=2008-09-17&UrlEndPoint=#{endpoint}&HttpParameters=#{query}"
-        result = open(url_and_query)
+        result = open(url_and_query) rescue false
         result.read =~ /Success/ ? true : false
       end
 
