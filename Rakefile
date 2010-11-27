@@ -1,25 +1,19 @@
-%w[rubygems rake rake/clean fileutils hoe newgem rubigen].each { |f| require f }
-require File.dirname(__FILE__) + '/lib/simplepay'
+%w[rubygems rake rake/clean fileutils].each { |f| require f }
+#require File.dirname(__FILE__) + '/lib/simplepay'
 
-$hoe = Hoe.new('simplepay', Simplepay::VERSION) do |p|
-  p.developer('Nathaniel E. Bibler', 'gem@nathanielbibler.com')
-  p.changes              = p.paragraphs_of("History.txt", 0..1).join("\n\n")
-  p.rubyforge_name       = p.name
-  p.extra_deps         = [
-    ['activesupport','~> 2.3.9']
-  ]
-  p.extra_dev_deps = [
-    ['newgem', ">= #{::Newgem::VERSION}"]
-  ]
-  
-  p.clean_globs |= %w[**/.DS_Store tmp *.log]
-  path = (p.rubyforge_name == p.name) ? p.rubyforge_name : "\#{p.rubyforge_name}/\#{p.name}"
-  p.remote_rdoc_dir = ''
-  p.rsync_args = '-av --delete --ignore-errors'
+begin
+  require 'jeweler'
+  Jeweler::Tasks.new do |p|
+    p.name        = "simplepay"
+    p.authors     = ['Nathaniel E. Bibler']
+    p.email       = 'gem@nathanielbibler.com'
+    p.summary = 'Amazon SimplePay helpers for Rails 3'
+    p.files = Dir["*", "{lib}/**/*"]
+  end
+  Jeweler::GemcutterTasks.new
+rescue LoadError
+  puts "Jeweler (or a dependency) not available. Install it with: sudo geminstall jeweler"
 end
 
-require 'newgem/tasks' # load /tasks/*.rake
-Dir['tasks/**/*.rake'].each { |t| load t }
-
 task :default => [:test]
-task :release_and_update => [:gemspec, :release, :website, :post_news]
+#task :release_and_update => [:gemspec, :release, :website, :post_news]
