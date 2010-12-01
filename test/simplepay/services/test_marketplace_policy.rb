@@ -12,7 +12,7 @@ class Simplepay::Services::TestMarketplacePolicy < Test::Unit::TestCase
                               :required => true
 
     should_have_service_field :signature,
-                              :as       => 'awsSignature', 
+                              :as       => 'signature', 
                               :required => true
 
     should_have_service_field :account_id,
