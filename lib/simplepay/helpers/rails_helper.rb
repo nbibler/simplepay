@@ -22,7 +22,7 @@ module Simplepay
       # 
       def simplepay_form_for(service_name, attributes = {}, submit_tag = nil)
         service = get_simplepay_service(service_name)
-        service.form(attributes, submit_tag)
+        service.form(attributes, submit_tag).html_safe
       end
       
       
