@@ -1,4 +1,5 @@
 require 'cgi'
+require 'nokogiri'
 require 'open-uri'
 
 module Simplepay
@@ -44,8 +45,8 @@ module Simplepay
         query = CGI.escape(query)
 
         url_and_query = url + "/?Action=VerifySignature&Version=2008-09-17&UrlEndPoint=#{endpoint}&HttpParameters=#{query}"
-        result = open(url_and_query) rescue false
-        result.read =~ /Success/ ? true : false
+        result = Nokogiri::XML(open(url_and_query)) rescue false
+        result.css("VerificationStatus").children.to_s == "Success"
       end
 
     end

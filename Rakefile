@@ -10,6 +10,7 @@ begin
     p.summary = 'Amazon SimplePay helpers for Rails 3'
     p.files = Dir["*", "{lib}/**/*"]
     p.add_dependency 'activesupport', '~>3.0.0'
+    p.add_dependency 'nokogiri', '~>1.4'
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
