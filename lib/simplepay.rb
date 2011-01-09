@@ -17,7 +17,7 @@ end
 
 module Simplepay
   
-  VERSION = '0.2.2.1' unless const_defined?(:VERSION)
+  VERSION = '0.2.2.2' unless const_defined?(:VERSION)
 
   mattr_accessor :aws_access_key_id
   @@aws_access_key_id = '' 
