@@ -42,6 +42,7 @@ module Simplepay
       required_field :signature
       required_field :signature_method, :value => 'HmacSHA256'
       required_field :signature_version, :value => '2'
+      required_field :account_id, :as => :amazon_payments_account_id
 
       field :abandon_url
       field :cobranding_style, :value => 'logo'
