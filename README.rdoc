@@ -29,7 +29,6 @@ Configure the gem with your Amazon credentials:
     
     Simplepay.aws_access_key_id     = 'MYAMAZONACCESSKEYID'
     Simplepay.aws_secret_access_key = 'MYAMAZONSECRETACCESSKEY'
-    Simplepay.account_id            = 'ACCOUNTIDFORAMAZONPAYMENTS'
 
 Then, let Rails know about the Simplepay::Helpers:
 
@@ -94,8 +93,7 @@ that sellers items:
 == REQUIREMENTS:
 
 1. You must have an Amazon Payments <b>business account</b>.
-2. You must know your Amazon Payments <b>account identifier</b> [instructions to come]
-3. You must know your Amazon Web Services <b>access key</b> and <b>secret access key</b>.
+2. You must have an Amazon Web Services account and know your <b>access key</b> and <b>secret access key</b>.
 
 == INSTALL:
 

@@ -13,11 +13,7 @@ class Simplepay::Services::TestMarketplace < Test::Unit::TestCase
 
     should_have_service_field :signature,
                               :as       => 'signature', 
-                              :required => true
-
-    should_have_service_field :account_id,
-                              :as       => 'amazonPaymentsAccountId', 
-                              :required => true
+                              :required => true                              
 
     should_have_service_field :description,
                               :as       => 'description', 

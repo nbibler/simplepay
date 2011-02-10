@@ -32,7 +32,6 @@ module Simplepay
       
       required_field :access_key, :as => :caller_key
       required_field :signature,  :as => :signature
-      required_field :account_id, :as => :caller_account_id
       required_field :signature_method, :value => 'HmacSHA256'
       required_field :signature_version, :value => '2'
       

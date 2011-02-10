@@ -13,11 +13,7 @@ class Simplepay::Services::TestMarketplacePolicy < Test::Unit::TestCase
 
     should_have_service_field :signature,
                               :as       => 'signature', 
-                              :required => true
-
-    should_have_service_field :account_id,
-                              :as       => 'callerAccountId', 
-                              :required => true
+                              :required => true                              
 
     should_have_service_field :max_fixed_fee,
                               :as       => 'maxFixedFee', 
