@@ -4,7 +4,7 @@ http://simplepay.rubyforge.org
 
 == DESCRIPTION:
 
-This gem provides a Rails interface to the Amazon Simple Pay payment service.
+This gem provides a Rails 3 interface to the Amazon Simple Pay payment service.
 
 == FEATURES/PROBLEMS:
 
@@ -17,13 +17,13 @@ Supports the following Amazon Simple Pay services:
 
 == SYNOPSIS:
 
-Set up the gem requirement in your environment:
+Add simplepay to your Bundler Gemfile
 
-    (in config/environment.rb)
+    (in Gemfile)
     
-    config.gem "simplepay"
+    gem "simplepay"
 
-Configure the gem with your Amazon credentials:
+Configure the gem with your Amazon Web Services credentials:
 
     (in config/initializers/simplepay.rb)
     
@@ -32,10 +32,29 @@ Configure the gem with your Amazon credentials:
 
 Then, let Rails know about the Simplepay::Helpers:
 
-    (potentially in app/controllers/application[_controller].rb or really anywhere else)
+    (in app/controllers/application_controller.rb)
     
     require 'simplepay/rails'
 
+=== Obtaining Amazon Web Services Credentials
+    
+1) Create an Amazon Payments Personal Account
+    https://payments.amazon.com/sdui/sdui/basicaccount
+    or on Sandbox:
+    https://payments-sandbox.amazon.com/sdui/sdui/basicaccount
+
+2) Create an Amazon Payments Business Account
+    https://payments.amazon.com/sdui/sdui/premiumaccount
+    or in the sandbox for testing 
+    https://payments-sandbox.amazon.com/sdui/sdui/premiumaccount
+    
+3)  Create an Amazon Web Services Account  
+    https://aws-portal.amazon.com/gp/aws/developer/registration/index.html
+
+4)  Retrieve the Access Key ID and Secret Access Key
+    https://aws-portal.amazon.com/gp/aws/developer/account/index.html?ie=UTF8&action=access-key
+
+Note that the AWS Access Key ID and Secret Access Key is good for both testing in the sandbox and for production use.
 
 === Generating your Simple Pay forms
 
@@ -88,13 +107,7 @@ that sellers items:
       :fixed_marketplace_fee    => 10.00,
       :variable_marketplace_fee => 5
     }) %>
-
-
-== REQUIREMENTS:
-
-1. You must have an Amazon Payments <b>business account</b>.
-2. You must have an Amazon Web Services account and know your <b>access key</b> and <b>secret access key</b>.
-
+      
 == INSTALL:
 
     sudo gem install simplepay
@@ -104,6 +117,7 @@ that sellers items:
 (The MIT License)
 
 Copyright (c) 2008 Nathaniel E. Bibler
+Copyright (c) 2011 Derrick Parkhurst
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

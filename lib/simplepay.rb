@@ -17,15 +17,12 @@ end
 
 module Simplepay
   
-  VERSION = '0.2.2.2' unless const_defined?(:VERSION)
+  VERSION = '0.2.3' unless const_defined?(:VERSION)
 
   mattr_accessor :aws_access_key_id
   @@aws_access_key_id = '' 
   mattr_accessor :aws_secret_access_key
-  @@aws_secret_access_key = ''
-  mattr_accessor :account_id
-  @@account_id = ''
-
+  @@aws_secret_access_key = ''  
   mattr_accessor :use_sandbox
   @@use_sandbox = true
 
